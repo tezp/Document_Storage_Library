@@ -119,7 +119,6 @@ class Sqlite(IDocumentOperation):
             print("Updated successfully")
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def rename_file(self, src_file_name, dst_file_name):
         '''
@@ -136,7 +135,6 @@ class Sqlite(IDocumentOperation):
             print("Renamed " + src_file_name + " --> " + dst_file_name)
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def get_file_size(self, file_name):
         '''
@@ -157,7 +155,6 @@ class Sqlite(IDocumentOperation):
             return str(size) + " B"
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def get_created_time(self, file_name):
         '''
@@ -173,7 +170,6 @@ class Sqlite(IDocumentOperation):
             return row
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def get_modified_time(self, file_name):
         '''
@@ -189,7 +185,6 @@ class Sqlite(IDocumentOperation):
             return row
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def delete_file(self, file_name):
         '''
@@ -204,7 +199,6 @@ class Sqlite(IDocumentOperation):
             DBConnection.getInstance().connection.commit()
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def __delete_file_locally(self, file_name):
         '''
