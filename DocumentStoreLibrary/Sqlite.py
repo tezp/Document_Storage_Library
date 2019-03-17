@@ -1,10 +1,12 @@
 import os
 import sqlite3
-
 from .IDocumentOperation import IDocumentOperation
 
 
 class DBConnection:
+    '''
+    This class is used for database connection.
+     '''
     __instance = None
     connection = None
 
@@ -14,7 +16,7 @@ class DBConnection:
     @classmethod
     def getInstance(cls):
         '''
-        Used for singleton
+        Used to get database instance
         :return:
         '''
         if not cls.__instance:
@@ -170,6 +172,7 @@ class Sqlite(IDocumentOperation):
             return row
         except Exception as exception:
             print(str(exception))
+            DBConnection.getInstance().connection.close()
 
     def get_modified_time(self, file_name):
         '''
@@ -213,4 +216,3 @@ class Sqlite(IDocumentOperation):
                 print("File not found")
         except Exception as exception:
             print(str(exception))
-
