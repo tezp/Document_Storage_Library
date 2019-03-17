@@ -94,7 +94,7 @@ class AWS(IDocumentOperation):
         except Exception as exception:
             print(str(exception))
 
-    def get_creation_time(self, file_name):
+    def get_created_time(self, file_name):
         '''
         Return time at which file is created in bucket
         :param file_name:
