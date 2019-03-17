@@ -172,7 +172,6 @@ class Sqlite(IDocumentOperation):
             return row
         except Exception as exception:
             print(str(exception))
-            DBConnection.getInstance().connection.close()
 
     def get_modified_time(self, file_name):
         '''
