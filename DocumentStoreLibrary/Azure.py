@@ -27,7 +27,6 @@ class Azure(IDocumentOperation):
             # Write text to the file.
             with open(file_name, 'w') as file:
                 file.write(text)
-            print("\nUploading to Blob storage as blob")
             # Upload the created file, use local_file_name for the blob name
             self.__block_blob_service.create_blob_from_path(self.__container_name, file_name, file_name)
 
